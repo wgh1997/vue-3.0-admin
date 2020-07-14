@@ -30,7 +30,6 @@ function filterAsyncRouter (asyncRouterMap, roles) {
         }
         return false
     })
-    console.log(accessedRouters, '我的结果')
     return accessedRouters
 }
 
@@ -43,9 +42,8 @@ const permission = {
         SET_ROUTERS: (state, routers) => {
             state.addRouters = routers// 这个是没有获取动态路由的
             state.routers = constantRouterMap.concat(routers)// 数组的合并
-            // localStorage.routers=JSON.stringify(constantRouterMap.concat(routers))
-            // state.routers = JSON.parse(localStorage.routers)
-            console.log('state.routers', state.routers)
+            localStorage.routers=JSON.stringify(constantRouterMap.concat(routers))
+            state.routers = JSON.parse(localStorage.routers)
         }
     },
     actions: {
@@ -53,16 +51,11 @@ const permission = {
             return new Promise(resolve => {
                 const { roles } = data
                 let accessedRouters
-                console.log(roles)
                 if (roles.indexOf('admin') >= 0) {
-                    console.log('admin>=0')
                     accessedRouters = asyncRouterMap
-                    console.log(accessedRouters)
                 } else {
-                    console.log('admin<0')
                     accessedRouters = filterAsyncRouter(asyncRouterMap, roles)
                 }
-                console.log('accessedRouters', accessedRouters)
                 commit('SET_ROUTERS', accessedRouters)
                 resolve()
             })

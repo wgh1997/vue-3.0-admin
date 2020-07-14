@@ -1,10 +1,9 @@
 <template>
-  <div class="header">
-    <h1>Tab 路由管理
-      <el-button @click='logout'>退出登录</el-button>
-    </h1>
-  </div>
+<div>
+  404
+</div>
 </template>
+
 
 <script>
 export default {

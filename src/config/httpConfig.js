@@ -1,11 +1,9 @@
 import axios from 'axios'
 import store from '@/store/index.js'
 import baseURL from './baseUrl'
-console.log(baseURL, "basUrl2")
 import {
     Message
 } from 'element-ui'
-
 const http = {}
 //自己创建新的axios一个实例
 var instance = axios.create({
@@ -105,7 +103,7 @@ http.get = function (url, options) {
                     // loading = document.getElementById('ajaxLoading')
                     // loading.style.display = 'none'
                 }
-                console.log(typeof (response), 'get获取的数据')
+                // console.log(typeof (response), 'get获取的数据')
                 if (typeof (response) === "object") {
                     resolve(response)
                 } else {
@@ -149,7 +147,7 @@ http.post = function (url, data, options) {
                     // loading = document.getElementById('ajaxLoading')
                     // loading.style.display = 'none'
                 }
-                console.log(response, "post获取的数据")
+             
 
                 //resolve(response)
                 if (typeof (response) === "object") {

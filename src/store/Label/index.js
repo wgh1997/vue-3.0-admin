@@ -8,7 +8,7 @@ const Label = {
         // 添加tabs
         add_tabs (state, data) {
             this.state.openTab.push(data)
-            console.log(data, '我是什么', this.state.openTab)
+           
         },
         // 删除tabs
         delete_tabs (state, route) {

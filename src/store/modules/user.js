@@ -30,9 +30,9 @@ const user = {
             const username = userInfo.username.trim()// 他这是去除二端的空白的字符的
             return new Promise((resolve, reject) => {
                 login(username, userInfo.password).then(response => {
-                    console.log(response, '好像我没有运行')
+               
                     const data = response.data.data
-                    console.log(data)
+             
                     // 这个是把token存储到cookie
                     setToken(data.token)
                     commit('SET_TOKEN', data.token)
@@ -64,7 +64,6 @@ const user = {
         LogOut ({ commit, state }) {
             return new Promise((resolve, reject) => {
                 logout(state.token).then(() => {
-                    console.log('我运行了吗')
                     commit('SET_TOKEN', '')
                     commit('SET_ROLES', [])
                     removeToken()

@@ -1,6 +1,7 @@
 <template>
   <div class="page">
     首页
+    <button @click="sse">提交</button>
   </div>
 </template>
 
@@ -14,22 +15,21 @@ export default {
   },
   props: {},
   watch: {},
-  methods: {},
+  methods: {
+    async sse(){
+      let data = await getUser();
+      console.log(data, "我是什么");
+    }
+  },
   computed: {},
   created() {},
   mounted() {
     async function fun() {
-      let data = await getUser();
-      console.log(data, "我是什么");
-      return data;
+      // let data = await getUser();
+      // console.log(data, "我是什么");
+      // return data;
     }
     fun()
-      .then(stream => {
-        console.log("我运行木有", stream);
-      })
-      .catch(stream => {
-        console.log("我运行木有", stream);
-      });
   },
   destroyed() {}
 };
